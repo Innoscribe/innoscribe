@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "innoscribe-467418",
+  "private_key_id": "48386c748d3bef81f390de2b7b661581bf7e5b64",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDN+AuVgATx1bpD\n3imYrmtbnzHvw22Ccsxs7QrbftyZfEM7TUieZBbvNC2wEhdn5Vt6tGXzW7rIck2S\nHXU9klPi/aw2nQlIjvB5C3KJCBGMhFms2AfMj18c/ZzYfVxjLh5NAeekd36/Pf++\nUXXvWmlDmauI1I7Syuz6ydFnOreR1QReQjR0jQOcSGYzUWzplGyCl/tTUEekf1Zo\nf8dRNb9QU/OxzjWXoT8T8831OFDkyCimUP3JqcqhbwNoui3YspqsNzMVzAm6fHpU\nltfS4Rn3WlMxvnRx3F/Cf8h6Ir2aAQj3ymzTchEl+/sixVA5CEtpDbZ3GTjlPLns\nFawG0kKdAgMBAAECggEAI/y+s2aclo+QHbsTvAJfrjDExh54hBYgSzjokHzcOPIa\nAiLI+SnGSxGsGOs0TTopD2m1NX3Vxx+Xl5vPiAxI3WySujEadePJtvCN2M0A2fMn\nAvj09eQoC3XxgW735Tlh4HUgft9FFU+VH3D2wPUkVsQjEUOIV+LOYKxCCv4apF9K\nPydmTVi5Lt47gIfuFIZjmw/6dT3wVWkg0sQfNro0pSLQTNWUiYKjt7QiUd7pTZ3X\nBotfdNLR76ZxO3w6UYl151KuHuZirQuFfCPb1NkB1gwfQfzTIrdeP9cSH3hgyESq\nQ/OcWOcvx5bwkntxBexOUr0+HxAxIWLwDYXVHNwC+QKBgQDsXYV7xzVbJ/EXCm/z\nLFeL+qNpkTot9Qk9d13mfEZLsa4aj0JeCuHG4pl1oXo0XDsnrYMJmAkr6yMKfazm\ncp/Lzgxfdd5fRNxfRzHMQwG3lrqzwdYeW+SHt7X4AeZn7e6+yiMZkJEpZxOOHBAn\nQ8+RdasurOgqfnVzrz1fTF+3CQKBgQDfFB9o+dLl8E4F39lLzv1ZC6UlpGkE8omg\nVJH4G78DZ3vbuZn1HUj63Xf3jnC5ygkkLMqfazTPgY39C2n5S6oAaMsOyipcxCYL\nIXxRrF6lLBSxJY8NaLzie84XQs8WyQqMS6AbyeDRPNUM3dbmzsWj46qtp7MVZbh1\nePV1/R4f9QKBgQDlKMrItduqFDBvKURenAgJA6g5Kn8gnWgm+rrEQoqYypxEzc4H\nhT9eZsVnwXXMm/sSPexEee2ycddYTX47MrhwjMV8K7e73/RUP58tLW3Vw8Ihk3V3\nm5oWZut6lsT+0DTfLvUWzQ2f+XqBFf4nQ1xT56RerW6t/Er9LNIwucg2mQKBgQDT\n2WpS6R2N3H5cOc9EnRggHl0BuHc7iZGFv4q4ErF97CLF8ibxjpQmGXi6kn0fE21G\n+3qZltgaUDClpNdJNsAFj393ViqQ2n4+h9hmP8nKFmi4KrEFzPfEJkr78Ch2vQnV\nXmR4v2lPi/PQOkTCAI/VKnqGXAJISce5V9vT50NamQKBgAT6Zi4F0SDVV+FCMYxg\nifXGZ/6nmXSm/gZj+VUlpYxKLyPUx64Q2JnYY+3fbKGyVntGUM9QvJZisb7dYNfl\ntWj6bB6jgOSSk5HzhSCbZzDKe97gFqLAAyuLiSr6fukvC0GWzwh1y+GLQm5NtkJP\ndRp1ESZRQQz8tozBtRNF2hqI\n-----END PRIVATE KEY-----\n",
+  "client_email": "drive-upload-bot@innoscribe-467418.iam.gserviceaccount.com",
+  "client_id": "113842168113226558298",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/drive-upload-bot%40innoscribe-467418.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
