@@ -79,15 +79,15 @@ const Hero = () => {
                     <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
                       <button
                         onClick={togglePlay}
-                        className="bg-[#58c0c2] hover:bg-[#4dbabc] text-white p-4 rounded-full transition-colors"
+                        className="bg-[#58c0c2] hover:bg-[#4dbabc] text-white p-2 md:p-4 rounded-full transition-colors"
                       >
                         {isPlaying ? (
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                          <svg className="w-4 h-4 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor">
                             <rect x="6" y="4" width="4" height="16" />
                             <rect x="14" y="4" width="4" height="16" />
                           </svg>
                         ) : (
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                          <svg className="w-4 h-4 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor">
                             <polygon points="5,3 19,12 5,21" />
                           </svg>
                         )}
