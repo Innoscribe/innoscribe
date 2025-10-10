@@ -31,13 +31,11 @@ const ServicesSection = () => {
                 />
               </svg>
               <h3 className="text-lg xl:text-xl font-bold text-white mb-4">
-                AI-assistenter for taleanrop
+                AI-assistenter for taleanrop  
               </h3>
               <p className="text-sm text-white mb-6">
-                Vår AI-drevne talebot svarer på både enkle og komplekse
-                spørsmål, håndterer reservasjoner, bestillinger og møtebooking –
-                helt automatisk. Den forstår ulike språk, flere dialekter og gir
-                en sømløs og profesjonell opplevelse for kundene dine.
+                 Vår talebot besvarer spørsmål, tar imot bestillinger og booker møter   
+automatisk – på flere språk og dialekter, alltid profesjonelt.  
               </p>
             </div>
             <Link href="/error" passHref>
@@ -79,12 +77,11 @@ const ServicesSection = () => {
                 />
               </svg>
               <h3 className="text-lg xl:text-xl font-bold text-white mb-4">
-                AI GPT- Chatbots & Lead Chatbot
+                AI-chatbots & Lead Chatbot  
               </h3>
               <p className="text-sm text-white mb-6">
-                Innoscribe tilbyr to kraftige AI-chatbots som hjelper deg å vokse
-                smartere. Kundeservice-chatboten gir personlig og effektiv støtte
-                døgnet rundt, drevet av GPT-teknologi som lærer og tilpasser seg.
+                Vi tilbyr chatboter som gir kundestøtte døgnet rundt og hjelper deg å   
+skape flere leads – drevet av GPT-teknologi som lærer og tilpasser seg.  
               </p>
             </div>
             <Link href="/error#section2" passHref>
@@ -126,13 +123,11 @@ const ServicesSection = () => {
                 />
               </svg>
               <h3 className="text-lg xl:text-xl font-bold text-white mb-4">
-                AI-drevne virtuelle agenter
+               AI-drevne agenter  
               </h3>
               <p className="text-sm text-white mb-6">
-                Våre AI-agenter er autonome systemer som forstår, lærer og
-                handler på egen hånd. De kan utføre komplekse oppgaver som
-                kundedialog, prosessautomatisering og datadrevet
-                beslutningstaking – uten behov for kontinuerlig oppfølging.
+                Våre agenter jobber selvstendig med kundedialog, automasjon og   
+beslutninger – uten behov for oppfølging.
               </p>
             </div>
             <Link href="/error#section3" passHref>

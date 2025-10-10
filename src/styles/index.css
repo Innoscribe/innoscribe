@@ -144,3 +144,32 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom slider styles */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #58c0c2;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #58c0c2;
+  cursor: pointer;
+  border: none;
+}
+
+.slider::-webkit-slider-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+.slider::-moz-range-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
