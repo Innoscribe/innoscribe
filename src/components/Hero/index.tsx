@@ -125,6 +125,7 @@ const Hero = () => {
                       className="w-full h-auto object-contain cursor-pointer"
                       onTimeUpdate={handleTimeUpdate}
                       onLoadedMetadata={handleLoadedMetadata}
+                      onClick={togglePlay}
                     >
                       <source src="https://pub-d466b5bd13de45a6a78414c86cff5e2f.r2.dev/innoscribe%20norway%204k%20(1).mp4" type="video/mp4" />
                       Your browser does not support the video tag.
@@ -164,15 +165,27 @@ const Hero = () => {
                         
                         {/* Volume Control */}
                         <div className="flex items-center gap-1 md:gap-2">
-                          <button onClick={toggleMute} className="text-white hover:text-[#58c0c2] transition-colors">
+                          <button onClick={toggleMute} className="text-white hover:text-[#58c0c2] transition-colors flex items-center">
                             {isMuted ? (
                               <svg className="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
                               </svg>
                             ) : (
-                              <svg className="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5" />
-                              </svg>
+                              <>
+                                <svg className="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 24 24" fill="currentColor">
+                                  <polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5" />
+                                </svg>
+                                <div className="flex items-center gap-px -ml-px">
+                                  {[...Array(5)].map((_, i) => (
+                                    <div
+                                      key={i}
+                                      className={`w-1 h-2 md:w-1 md:h-2 rounded-full ${
+                                        i < Math.ceil((isMuted ? 0 : volume) * 5) ? 'bg-white' : 'bg-gray-500'
+                                      }`}
+                                    />
+                                  ))}
+                                </div>
+                              </>
                             )}
                           </button>
                           <input
