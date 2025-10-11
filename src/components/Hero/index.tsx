@@ -26,25 +26,19 @@ const Hero = () => {
   const handleTimeUpdate = () => {
     if (videoRef.current) {
       setCurrentTime(videoRef.current.currentTime);
-      // Set 2x speed for first 1 second, normal speed after
-      if (videoRef.current.currentTime <= 1) {
-        videoRef.current.playbackRate = 2;
-      } else {
-        videoRef.current.playbackRate = 1;
-      }
     }
   };
 
   const handleLoadedMetadata = () => {
     if (videoRef.current) {
       setDuration(videoRef.current.duration);
-      videoRef.current.playbackRate = 2; // Start at 2x speed
+      videoRef.current.currentTime = 2; // Skip first 2 seconds
     }
   };
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const time = parseFloat(e.target.value);
-    if (videoRef.current) {
+    if (videoRef.current && time >= 2) {
       videoRef.current.currentTime = time;
       setCurrentTime(time);
     }
@@ -142,7 +136,7 @@ const Hero = () => {
                       <div className="mb-2">
                         <input
                           type="range"
-                          min="0"
+                          min="2"
                           max={duration}
                           value={currentTime}
                           onChange={handleSeek}
