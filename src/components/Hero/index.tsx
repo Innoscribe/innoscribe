@@ -25,14 +25,16 @@ const Hero = () => {
       setLoading(false);
 
       if (!res.ok) {
-        setMessage(data.message || 'Error starting call.');
+        setMessage(data.message || 'Feil ved oppstart av samtale.');
       } else {
-        setMessage('✅ Call started successfully!');
+        setMessage(`✅ ${data.message}`);
+        setName('');
+        setPhone('');
       }
     } catch (error) {
       console.error(error);
       setLoading(false);
-      setMessage('Server error. Please try again.');
+      setMessage('Nettverksfeil. Sjekk internettforbindelsen din.');
     }
   };
 
@@ -95,6 +97,7 @@ const Hero = () => {
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#58c0c2] focus:border-[#58c0c2] transition-colors outline-none bg-white text-gray-900 placeholder-gray-500"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
+                          onFocus={() => setMessage('')}
                           placeholder="Ditt fulle navn"
                           required
                         />
@@ -109,6 +112,7 @@ const Hero = () => {
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#58c0c2] focus:border-[#58c0c2] transition-colors outline-none bg-white text-gray-900 placeholder-gray-500"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
+                          onFocus={() => setMessage('')}
                           placeholder="+47 123 45 678"
                           required
                         />
@@ -138,12 +142,27 @@ const Hero = () => {
                       </button>
 
                       {message && (
-                        <div className={`mt-4 p-4 rounded-lg text-center font-medium ${
-                          message.includes('✅') 
-                            ? 'bg-white/20 text-white border border-white/30' 
-                            : 'bg-red-500/20 text-red-100 border border-red-400/30'
+                        <div className={`mt-6 p-5 rounded-xl text-center font-semibold text-sm transition-all duration-500 transform animate-in slide-in-from-bottom-2 shadow-lg ${
+                          message.includes('startet') 
+                            ? 'bg-green-600 text-white border-2 border-green-500' 
+                            : 'bg-white text-gray-800 border-2 border-red-400'
                         }`}>
-                          {message}
+                          <div className="flex items-center justify-center gap-3">
+                            {message.includes('startet') ? (
+                              <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                                <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                              </div>
+                            ) : (
+                              <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                              </div>
+                            )}
+                            <span className="leading-relaxed">{message}</span>
+                          </div>
                         </div>
                       )}
                     </form>
