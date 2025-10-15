@@ -65,22 +65,14 @@ const VideoSection = () => {
   };
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-14 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 leading-[3.25rem] mb-4">
-            Se Innoscribe i aksjon
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Opplev hvordan våre AI-løsninger kan transformere din bedrift
-          </p>
-        </div>
 
         <Fade duration={2000}>
           <div className="relative z-10 mx-auto max-w-[845px]">
             <div className="relative">
               <div 
-                className="relative mx-auto max-w-[845px] rounded-xl overflow-hidden bg-gray-100 group"
+                className="relative mx-auto max-w-[845px] rounded-xl overflow-hidden bg-gray-100 group border-8 border-[#58c0c2] shadow-2xl shadow-[#58c0c2]/20"
                 onMouseEnter={() => setShowControls(true)}
                 onMouseLeave={() => setShowControls(false)}
                 onTouchStart={() => setShowControls(true)}
