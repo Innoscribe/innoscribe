@@ -3,6 +3,7 @@ import CallToAction from "@/components/CallToAction";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Features from "@/components/Features/featuresData";
 import Hero from "@/components/Hero";
+import VideoSection from "@/components/VideoSection";
 import Faq from "@/components/Faq";
 import { Metadata } from "next";
 
@@ -45,6 +46,7 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <Features />
+      <VideoSection />
       <CallToAction />
       <Faq />
     </main>

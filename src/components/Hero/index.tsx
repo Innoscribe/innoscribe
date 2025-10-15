@@ -1,67 +1,38 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
+
 const Hero = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
-  const [isMuted, setIsMuted] = useState(false);
-  const [showControls, setShowControls] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
 
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage('');
+
+    try {
+      const res = await fetch('/api/call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone }),
+      });
+
+      const data = await res.json();
+      setLoading(false);
+
+      if (!res.ok) {
+        setMessage(data.message || 'Error starting call.');
       } else {
-        videoRef.current.play();
+        setMessage('✅ Call started successfully!');
       }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (videoRef.current) {
-      setCurrentTime(videoRef.current.currentTime);
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    if (videoRef.current) {
-      setDuration(videoRef.current.duration);
-      videoRef.current.currentTime = 2; // Skip first 2 seconds
-    }
-  };
-
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const time = parseFloat(e.target.value);
-    if (videoRef.current && time >= 2) {
-      videoRef.current.currentTime = time;
-      setCurrentTime(time);
-    }
-  };
-
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const vol = parseFloat(e.target.value);
-    setVolume(vol);
-    if (videoRef.current) {
-      videoRef.current.volume = vol;
-      setIsMuted(vol === 0);
-    }
-  };
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      if (isMuted) {
-        videoRef.current.volume = volume;
-        setIsMuted(false);
-      } else {
-        videoRef.current.volume = 0;
-        setIsMuted(true);
-      }
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      setMessage('Server error. Please try again.');
     }
   };
 
@@ -70,7 +41,7 @@ const Hero = () => {
     <Fade duration={2000}>
       <section
         id="home"
-        className="relative overflow-hidden bg-[#58c0c2] pt-[120px] md:pt-[130px] lg:pt-[160px]"
+        className="relative overflow-hidden bg-[#58c0c2] pt-[80px] md:pt-[130px] lg:pt-[160px] min-h-screen flex items-center"
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap items-center">
@@ -83,7 +54,7 @@ const Hero = () => {
                 Innoscribe
                 </h1>
                 <p className="mx-auto mb-9 max-w-[600px] text-base font-medium text-white sm:text-lg sm:leading-[1.44]">
-               Oppdater bedriften din med AI <br />
+               Be om en AI-samtale og få en personlig demonstrasjon av våre tjenester <br />
                 <span className="text-center"></span></p>
                 <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
                   <li>
@@ -109,97 +80,73 @@ const Hero = () => {
 
             <div className="w-full px-4">
               <div
-                className="wow fadeInUp relative z-10 mx-auto max-w-[845px]"
+                className="wow fadeInUp mx-auto max-w-md"
                 data-wow-delay=".25s"
               >
-                <div className="mt-16 relative">
-                  <div 
-                    className="relative mx-auto max-w-[845px] rounded-xl overflow-hidden bg-gray-100 group"
-                    onMouseEnter={() => setShowControls(true)}
-                    onMouseLeave={() => setShowControls(false)}
-                    onTouchStart={() => setShowControls(true)}
-                    onTouchEnd={() => setTimeout(() => setShowControls(false), 2000)}
-                  >
-                    <video
-                      ref={videoRef}
-                      className="w-full h-auto object-contain cursor-pointer"
-                      onTimeUpdate={handleTimeUpdate}
-                      onLoadedMetadata={handleLoadedMetadata}
-                      onClick={togglePlay}
-                    >
-                      <source src="https://pub-d466b5bd13de45a6a78414c86cff5e2f.r2.dev/innoscribe%20norway%204k%20(1).mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    
-                    {/* Custom Controls */}
-                    <div className={`absolute bottom-2 left-2 right-2 bg-black/20 rounded-lg p-2 md:p-3 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}>
-                      {/* Seek Slider */}
-                      <div className="mb-2">
+                <div className="mt-8">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-[#58c0c2]/20">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-[#58c0c2] mb-2">
+                          Navn
+                        </label>
                         <input
-                          type="range"
-                          min="2"
-                          max={duration}
-                          value={currentTime}
-                          onChange={handleSeek}
-                          className="w-full h-1 bg-gray-300 rounded-lg appearance-none cursor-pointer slider"
+                          type="text"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#58c0c2] focus:border-[#58c0c2] transition-colors outline-none bg-white text-gray-900 placeholder-gray-500"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Ditt fulle navn"
+                          required
                         />
                       </div>
-                      
-                      <div className="flex items-center justify-between">
-                        {/* Play Button */}
-                        <button
-                          onClick={togglePlay}
-                          className="bg-[#58c0c2] hover:bg-[#4dbabc] text-white p-1.5 md:p-3 rounded-full transition-colors"
-                        >
-                          {isPlaying ? (
-                            <svg className="w-3 h-3 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
-                              <rect x="6" y="4" width="4" height="16" />
-                              <rect x="14" y="4" width="4" height="16" />
-                            </svg>
-                          ) : (
-                            <svg className="w-3 h-3 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
-                              <polygon points="5,3 19,12 5,21" />
-                            </svg>
-                          )}
-                        </button>
-                        
-                        {/* Volume Control */}
-                        <div className="flex items-center gap-1 md:gap-2">
-                          <button onClick={toggleMute} className="text-white hover:text-[#58c0c2] transition-colors flex items-center">
-                            {isMuted ? (
-                              <svg className="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-                              </svg>
-                            ) : (
-                              <>
-                                <svg className="w-3 h-3 md:w-4 md:h-4" viewBox="0 0 24 24" fill="currentColor">
-                                  <polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5" />
-                                </svg>
-                                <div className="flex items-center gap-px -ml-px">
-                                  {[...Array(5)].map((_, i) => (
-                                    <div
-                                      key={i}
-                                      className={`w-1 h-2 md:w-1 md:h-2 rounded-full ${
-                                        i < Math.ceil((isMuted ? 0 : volume) * 5) ? 'bg-white' : 'bg-gray-500'
-                                      }`}
-                                    />
-                                  ))}
-                                </div>
-                              </>
-                            )}
-                          </button>
-                          <input
-                            type="range"
-                            min="0"
-                            max="1"
-                            step="0.1"
-                            value={isMuted ? 0 : volume}
-                            onChange={handleVolumeChange}
-                            className="w-12 md:w-20 h-1 bg-gray-300 rounded-lg appearance-none cursor-pointer slider"
-                          />
-                        </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-[#58c0c2] mb-2">
+                          Telefonnummer
+                        </label>
+                        <input
+                          type="tel"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#58c0c2] focus:border-[#58c0c2] transition-colors outline-none bg-white text-gray-900 placeholder-gray-500"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="+47 123 45 678"
+                          required
+                        />
                       </div>
-                    </div>
+
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full bg-[#58c0c2] hover:bg-[#4dbabc] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
+                      >
+                        {loading ? (
+                          <span className="flex items-center justify-center gap-2">
+                            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                            </svg>
+                            Ringer...
+                          </span>
+                        ) : (
+                          <span className="flex items-center justify-center gap-2">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            Start AI-samtale
+                          </span>
+                        )}
+                      </button>
+
+                      {message && (
+                        <div className={`mt-4 p-4 rounded-lg text-center font-medium ${
+                          message.includes('✅') 
+                            ? 'bg-white/20 text-white border border-white/30' 
+                            : 'bg-red-500/20 text-red-100 border border-red-400/30'
+                        }`}>
+                          {message}
+                        </div>
+                      )}
+                    </form>
                   </div>
                 </div>
 
