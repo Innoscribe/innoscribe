@@ -28,10 +28,13 @@ const Footer = () => {
                 {/* Links */}
                 <div className="flex gap-6 text-white text-sm md:text-base">
                   <Link href="/privacypolicy" className="hover:underline">
-                    Privacy Policy
+                    Personvernerklæring
+                  </Link>
+                  <Link href="/terms" className="hover:underline">
+                    Brukervilkår
                   </Link>
                   <Link href="/awards" className="hover:underline">
-                    Awards
+                    Utmerkelser
                   </Link>
                 </div>
               </div>

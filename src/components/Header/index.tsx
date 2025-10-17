@@ -223,14 +223,7 @@ const Header = () => {
 {/* ✅ Mobile links (text only, green) */}
 <div className="mt-2 flex flex-col gap-2 lg:hidden">
   <Link
-    href="#"
-    onClick={handleLinkClick}
-    className="font-medium text-[#58c0c2]"
-  >
-    Logg Inn
-  </Link>
-  <Link
-    href="/signup"
+    href="https://www.innoscribe.online/"
     onClick={handleLinkClick}
     className="font-medium text-[#58c0c2]"
   >
@@ -253,14 +246,7 @@ const Header = () => {
               {/* Right buttons (desktop) */}
               <div className="hidden items-center justify-end sm:flex lg:pr-0 gap-4">
                 <Link
-                  href="#"
-                  onClick={handleLinkClick}
-                  className="text-base font-medium text-black border border-[#58c0c2] py-2 px-4 rounded-full bg-slate-50"
-                >
-                  Logg Inn
-                </Link>
-                <Link
-                  href="/signup"
+                  href="https://www.innoscribe.online/"
                   onClick={handleLinkClick}
                   className="text-base font-medium text-black mr-24 border border-[#58c0c2] py-2 px-4 rounded-full bg-slate-50"
                 >

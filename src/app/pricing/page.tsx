@@ -13,8 +13,8 @@ const services = [
     ],
     isPopular: false,
     isSelected: false,
-    buttonText: "Kontakt oss",
-    link: "/contact",
+    buttonText: "Kom i gang",
+    link: "https://www.innoscribe.online/",
   },
   {
     title: "AI-TELEFONASSISTENTER",
@@ -30,8 +30,8 @@ const services = [
     ],
     isPopular: false,
     isSelected: true,
-    buttonText: "Kontakt oss",
-    link: "/contact",
+    buttonText: "Kom i gang",
+    link: "https://www.innoscribe.online/",
   },
   {
     title: "AI-AGENTER",
@@ -47,8 +47,8 @@ const services = [
     ],
     isPopular: false,
     isSelected: false,
-    buttonText: "Kontakt oss",
-    link: "/contact",
+    buttonText: "Kom i gang",
+    link: "https://www.innoscribe.online/",
   },
   {
     title: "UTGÅENDE BOOKING (BETAL PER RESULTAT)",
@@ -63,8 +63,8 @@ const services = [
     ],
     isPopular: false,
     isSelected: false,
-    buttonText: "Kontakt oss",
-    link: "/contact",
+    buttonText: "Kom i gang",
+    link: "https://www.innoscribe.online/",
   },
 ];
 
@@ -96,6 +96,9 @@ const ServicesPage = () => {
               {service.price}
               <span className="text-base font-normal text-gray-500"> {service.period}</span>
             </div>
+            <p className="text-xs text-gray-500 mb-4 italic">
+              Registrer deg først for å få tilpasset prising
+            </p>
             <ul className="text-sm text-gray-700 space-y-2 mb-6 text-left">
               {service.features.map((feature, i) => (
                 <li key={i} className="flex items-start">

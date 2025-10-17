@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { Fade } from "react-awesome-reveal";
+import Link from "next/link";
 
 const VideoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -67,6 +68,16 @@ const VideoSection = () => {
   return (
     <section className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Text Content */}
+        <div className="text-center mb-12">
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4">
+            Se hvordan Innoscribe gjør kundedialog smartere
+          </div>
+          <div className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+            Våre AI-agenter håndterer samtaler, oppgaver og bestillinger – helt automatisk.
+            Effektiv kundeservice, døgnet rundt.
+          </div>
+        </div>
 
         <Fade duration={2000}>
           <div className="relative z-10 mx-auto max-w-[845px]">
@@ -160,6 +171,16 @@ const VideoSection = () => {
                 </div>
               </div>
             </div>
+          </div>
+          
+          {/* Button under video */}
+          <div className="text-center mt-8">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-lg bg-[#58c0c2] text-white font-semibold px-8 py-3 text-base shadow-md hover:bg-[#4dbabc] transition"
+            >
+              Kom i gang
+            </Link>
           </div>
         </Fade>
       </div>

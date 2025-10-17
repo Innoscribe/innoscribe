@@ -60,12 +60,8 @@ const PricingBox = ({ product }: { product: Price }) => {
           </div>
         </div>
         <div className="w-full">
-          <Link href="https://calendly.com/kashankhalid429/30min" className="inline-block rounded-md bg-[#58c0c2] px-7 py-3 text-center text-base font-medium text-white transition duration-300 hover:bg-[#58c0c2]/90">
-
-
-
-          Book et møte
-
+          <Link href="https://www.innoscribe.online/" target="_blank" className="inline-block rounded-md bg-[#58c0c2] px-7 py-3 text-center text-base font-medium text-white transition duration-300 hover:bg-[#58c0c2]/90">
+            Kom i gang
           </Link>
         </div>
       </div>
