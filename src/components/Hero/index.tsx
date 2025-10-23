@@ -49,7 +49,7 @@ const Hero = () => {
           {/* LEFT COLUMN — Title, Text, Buttons */}
           <div className="lg:w-1/2 text-center lg:text-left text-white space-y-6 mt-16 lg:mt-0 lg:mr-12 lg:pl-32">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-              Innoscribe
+              banana
             </h1>
             <p className="text-lg sm:text-xl font-medium opacity-90">
               Oppdater bedriften din med AI

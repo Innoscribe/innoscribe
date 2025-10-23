@@ -219,13 +219,12 @@ const Header = () => {
                     )}
                   </ul>
 
-                 {/* ✅ Mobile buttons (smaller & neat) */}
-{/* ✅ Mobile links (text only, green) */}
-<div className="mt-2 flex flex-col gap-2 lg:hidden">
+                 {/* Mobile buttons */}
+<div className="mt-4 lg:hidden">
   <Link
     href="https://www.innoscribe.online/"
     onClick={handleLinkClick}
-    className="font-medium text-[#58c0c2]"
+    className="inline-block text-sm font-medium text-black border border-[#58c0c2] py-1.5 px-3 rounded-full bg-slate-50"
   >
     Registrer deg
   </Link>
