@@ -1,15 +1,13 @@
 "use client";
 import React, { useState } from "react";
 
-interface FormErrors {
-  fullName?: boolean;
-  email?: boolean;
-  phone?: boolean;
-  message?: boolean;
-}
-
 export default function ContactPage() {
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [errors, setErrors] = useState({
+    fullName: false,
+    email: false,
+    phone: false,
+    message: false
+  });
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -19,33 +17,18 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newErrors: FormErrors = {};
-    
-    if (!formData.fullName.trim()) newErrors.fullName = true;
-    if (!formData.email.trim()) newErrors.email = true;
-    if (!formData.phone.trim()) newErrors.phone = true;
-    if (!formData.message.trim()) newErrors.message = true;
+    const newErrors = {
+      fullName: !formData.fullName.trim(),
+      email: !formData.email.trim(),
+      phone: !formData.phone.trim(),
+      message: !formData.message.trim()
+    };
     
     setErrors(newErrors);
     
-    if (Object.keys(newErrors).length === 0) {
+    if (!newErrors.fullName && !newErrors.email && !newErrors.phone && !newErrors.message) {
       // Submit form
-      const form = e.currentTarget;
-      const submitFormData = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: submitFormData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-    }
-  };
-
-  const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: false }));
+      e.currentTarget.submit();
     }
   };
 
@@ -145,7 +128,10 @@ export default function ContactPage() {
                   name="fullName"
                   placeholder="Ola Normann"
                   value={formData.fullName}
-                  onChange={(e) => handleInputChange('fullName', e.target.value)}
+                  onChange={(e) => {
+                    setFormData(prev => ({ ...prev, fullName: e.target.value }));
+                    if (errors.fullName) setErrors(prev => ({ ...prev, fullName: false }));
+                  }}
                   className={`w-full border-0 border-b bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:outline-none dark:text-white ${
                     errors.fullName 
                       ? 'border-red-500 focus:border-red-500' 
@@ -165,7 +151,10 @@ export default function ContactPage() {
                   name="email"
                   placeholder="eksempel@din-epost.no"
                   value={formData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  onChange={(e) => {
+                    setFormData(prev => ({ ...prev, email: e.target.value }));
+                    if (errors.email) setErrors(prev => ({ ...prev, email: false }));
+                  }}
                   className={`w-full border-0 border-b bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:outline-none dark:text-white ${
                     errors.email 
                       ? 'border-red-500 focus:border-red-500' 
@@ -185,7 +174,10 @@ export default function ContactPage() {
                   name="phone"
                   placeholder="+47 000 00 000"
                   value={formData.phone}
-                  onChange={(e) => handleInputChange('phone', e.target.value)}
+                  onChange={(e) => {
+                    setFormData(prev => ({ ...prev, phone: e.target.value }));
+                    if (errors.phone) setErrors(prev => ({ ...prev, phone: false }));
+                  }}
                   className={`w-full border-0 border-b bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:outline-none dark:text-white ${
                     errors.phone 
                       ? 'border-red-500 focus:border-red-500' 
@@ -205,7 +197,10 @@ export default function ContactPage() {
                   rows={1}
                   placeholder="skriv her"
                   value={formData.message}
-                  onChange={(e) => handleInputChange('message', e.target.value)}
+                  onChange={(e) => {
+                    setFormData(prev => ({ ...prev, message: e.target.value }));
+                    if (errors.message) setErrors(prev => ({ ...prev, message: false }));
+                  }}
                   className={`w-full resize-none border-0 border-b bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:outline-none dark:text-white ${
                     errors.message 
                       ? 'border-red-500 focus:border-red-500' 
