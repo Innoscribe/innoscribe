@@ -1,8 +1,15 @@
 "use client";
 import React, { useState } from "react";
 
+interface FormErrors {
+  fullName?: boolean;
+  email?: boolean;
+  phone?: boolean;
+  message?: boolean;
+}
+
 export default function ContactPage() {
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -12,7 +19,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newErrors = {};
+    const newErrors: FormErrors = {};
     
     if (!formData.fullName.trim()) newErrors.fullName = true;
     if (!formData.email.trim()) newErrors.email = true;
