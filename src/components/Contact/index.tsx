@@ -10,7 +10,7 @@ export default function ContactPage() {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = {};
     
