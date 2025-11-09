@@ -54,7 +54,7 @@ const Header = () => {
       <header
         className={`ud-header left-0 z-40 flex w-full items-center ${
           sticky
-            ? "shadow-nav fixed z-[999] border-b border-stroke bg-white/80 backdrop-blur-[5px] dark:border-dark-3/20 dark:bg-dark/10 h-16 lg:h-20"
+            ? "shadow-nav fixed z-[999] border-b border-stroke bg-white/80 backdrop-blur-[5px] dark:border-dark-3/20 dark:bg-dark/10 h-16 lg:h-20 lg:pl-28"
             : `absolute bg-transparent ${
                 pathUrl === "/" ? "mt-12 lg:pl-28" : ""
               }`

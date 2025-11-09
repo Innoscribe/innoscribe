@@ -34,7 +34,7 @@ const Footer = () => {
                     Brukervilkår
                   </Link>
                   <Link href="/awards" className="hover:underline">
-                    Utmerkelser
+                    Prisvinnende
                   </Link>
                 </div>
               </div>

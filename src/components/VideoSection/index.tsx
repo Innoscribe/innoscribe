@@ -66,16 +66,12 @@ const VideoSection = () => {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Text Content */}
         <div className="text-center mb-12">
-          <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4">
-            Se hvordan Innoscribe gjør kundedialog smartere
-          </div>
-          <div className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-            Våre AI-agenter håndterer samtaler, oppgaver og bestillinger – helt automatisk.
-            Effektiv kundeservice, døgnet rundt.
+          <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-black max-w-3xl mx-auto">
+            AI-agenter som håndterer samtaler, oppgaver og bestillinger – hele døgnet.
           </div>
         </div>
 

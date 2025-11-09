@@ -135,7 +135,7 @@ const PricingPage = () => {
           </h1>
 
           <p className="text-gray-500 dark:text-gray-300">
-          Få full kontroll i vårt intuitive dashboard. Følg med på samtaler, resultater og trender i sanntid – alt samlet på ett sted for maksimal oversikt og innsikt.
+          Få full kontroll i vårt intuitive dashboard. Følg samtaler, resultater og trender i sanntid – alt samlet på ett sted for maksimal oversikt og innsikt. Våre AI-agenter kobles enkelt til dine eksisterende systemer og verktøy.
           </p>
         </div>
       </div>
@@ -187,11 +187,11 @@ const PricingPage = () => {
                 </span>
 
                 <h1 className="text-xl font-semibold text-gray-700 dark:text-white">
-                AI-agenter for effektiv drift 
+                24/7 tilgjengelighet
                 </h1>
 
                 <p className="text-gray-500 dark:text-gray-300">
-                Våre AI-agenter hjelper deg med å jobbe smartere. De forstår, kommuniserer og handler på egen hånd – 24/7.
+                Våre AI-agenter jobber for deg døgnet rundt. De skreddersys for å forstår behovene dine, kommuniserer med kunder og tar handling på egen hånd – alltid tilgjengelige for å gjøre arbeidet ditt enklere og mer effektivt.
                 </p>
               </div>
 
@@ -238,11 +238,11 @@ const PricingPage = () => {
                 </span>
 
                 <h1 className="text-xl font-semibold text-gray-700 dark:text-white">
-                Enkel integrasjon
+                Tilpasset dashboard
                 </h1>
 
                 <p className="text-gray-500 dark:text-gray-300">
-                Våre AI-agenter kobles enkelt til dine eksisterende systemer og verktøy – uten behov for kompliserte oppsett eller ekstraarbeid.
+                Få full kontroll i vårt intuitive dashboard. Følg samtaler, resultater og trender i sanntid – alt samlet på ett sted for maksimal oversikt og innsikt. Våre AI-agenter kobles enkelt til dine eksisterende systemer og verktøy.
                 </p>
               </div>
             </div>
@@ -297,11 +297,11 @@ const PricingPage = () => {
                 </span>
 
                 <h1 className="text-xl font-semibold text-gray-700 dark:text-white">
-                AI-funksjoner som funker
+                24/7 tilgjengelighet
                 </h1>
 
                 <p className="text-gray-500 dark:text-gray-300">
-                Våre chatboter forstår naturlig språk, gir presise svar og kan brukes til kundeservice, salg eller innsiktsinnhenting – alt skjer i sanntid.
+                Chatboten er alltid aktiv og gir kundene dine svar, hjelp og oppfølging døgnet rundt – helt automatisk.
                 </p>
               </div>
 
@@ -314,11 +314,11 @@ const PricingPage = () => {
                 </span>
 
                 <h1 className="text-xl font-semibold text-gray-700 dark:text-white">
-                Sikkerhet i fokus
+                På nettsiden din
                 </h1>
 
                 <p className="text-gray-500 dark:text-gray-300">
-                Datasikkerhet er innebygd fra starten. Systemet beskytter kundedata og samtaler med moderne og trygge metoder.
+                Chatboten håndterer spørsmål, bestillinger og bookings automatisk – akkurat som en AI-agent eller telefonassistent, direkte på din nettside.
                 </p>
               </div>
 
@@ -331,11 +331,11 @@ const PricingPage = () => {
                 </span>
 
                 <h1 className="text-xl font-semibold text-gray-700 dark:text-white">
-                Enkel å bruke
+                Intelligent assistanse
                 </h1>
 
                 <p className="text-gray-500 dark:text-gray-300">
-                Brukervennlig design gjør chatbotene enkle å sette opp og bruke – enten du er utvikler eller en vanlig bruker.
+                Chatboten forstår kundene dine, gir relevante svar, håndterer forespørsler og hjelper dem videre – alt automatisk og smart, uten at du trenger å følge opp.
                 </p>
               </div>
 
@@ -348,11 +348,11 @@ const PricingPage = () => {
                 </span>
 
                 <h1 className="text-xl font-semibold text-gray-700 dark:text-white">
-                Alltid support
+                Tilpasset dashboard
                 </h1>
 
                 <p className="text-gray-500 dark:text-gray-300">
-                Vårt supportteam er alltid klart til å hjelpe – fra oppsett til feilsøking. Vi følger deg hele veien.
+                Få full kontroll i vårt intuitive dashboard. Følg samtaler, resultater og trender i sanntid – alt samlet på ett sted for maksimal oversikt og innsikt. Våre AI-agenter kobles enkelt til dine eksisterende systemer og verktøy.
                 </p>
               </div>
             </div>

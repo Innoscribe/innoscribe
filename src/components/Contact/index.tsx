@@ -1,6 +1,47 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 export default function ContactPage() {
+  const [errors, setErrors] = useState({});
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = {};
+    
+    if (!formData.fullName.trim()) newErrors.fullName = true;
+    if (!formData.email.trim()) newErrors.email = true;
+    if (!formData.phone.trim()) newErrors.phone = true;
+    if (!formData.message.trim()) newErrors.message = true;
+    
+    setErrors(newErrors);
+    
+    if (Object.keys(newErrors).length === 0) {
+      // Submit form
+      const form = e.target;
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+    }
+  };
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: false }));
+    }
+  };
+
   return (
     <section className="py-20 bg-white dark:bg-dark">
       <div className="container mx-auto px-4">
@@ -8,13 +49,13 @@ export default function ContactPage() {
           {/* LEFT SIDE */}
           <div className="max-w-lg">
             <h2 className="text-3xl font-bold text-dark dark:text-white mb-6 leading-snug">
-              La oss hjelpe deg å lykkes med AI
+              Optimaliser bedriften med AI
             </h2>
             <p className="text-base text-body-color dark:text-dark-6 mb-10">
-              Interessert i hvordan våre løsninger kan gjøre hverdagen enklere og mer effektiv?
+              Ønsker du å gjøre bedriften mer effektiv med våre løsninger?
               <br />
               <br />
-              Fyll ut skjemaet eller ta kontakt – så finner vi den rette løsningen for din bedrift.
+              Fyll ut skjemaet eller ta kontakt – så skreddersyr vi løsningen for deg.
             </p>
 
             <div className="space-y-8">
@@ -84,61 +125,85 @@ export default function ContactPage() {
             <h3 className="mb-8 text-2xl font-semibold text-dark dark:text-white md:text-[28px] md:leading-[1.42]">
               Send oss ​​en melding!
             </h3>
-            <form action="https://formspree.io/f/moqgylzg" method="POST">
+            <form action="https://formspree.io/f/moqgylzg" method="POST" onSubmit={handleSubmit}>
               <div className="mb-[22px]">
                 <label
                   htmlFor="fullName"
-                  className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  className={`mb-4 block text-sm ${errors.fullName ? 'text-red-500' : 'text-body-color dark:text-dark-6'}`}
                 >
-                  Navn*
+                  Navn
                 </label>
                 <input
                   type="text"
                   name="fullName"
                   placeholder="Ola Normann"
-                  className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-[#58c0c2] focus:outline-none dark:border-dark-3 dark:text-white"
+                  value={formData.fullName}
+                  onChange={(e) => handleInputChange('fullName', e.target.value)}
+                  className={`w-full border-0 border-b bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:outline-none dark:text-white ${
+                    errors.fullName 
+                      ? 'border-red-500 focus:border-red-500' 
+                      : 'border-[#f1f1f1] focus:border-[#58c0c2] dark:border-dark-3'
+                  }`}
                 />
               </div>
               <div className="mb-[22px]">
                 <label
                   htmlFor="email"
-                  className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  className={`mb-4 block text-sm ${errors.email ? 'text-red-500' : 'text-body-color dark:text-dark-6'}`}
                 >
-                  E-post*
+                  E-post
                 </label>
                 <input
                   type="email"
                   name="email"
                   placeholder="eksempel@din-epost.no"
-                  className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-[#58c0c2] focus:outline-none dark:border-dark-3 dark:text-white"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  className={`w-full border-0 border-b bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:outline-none dark:text-white ${
+                    errors.email 
+                      ? 'border-red-500 focus:border-red-500' 
+                      : 'border-[#f1f1f1] focus:border-[#58c0c2] dark:border-dark-3'
+                  }`}
                 />
               </div>
               <div className="mb-[22px]">
                 <label
                   htmlFor="phone"
-                  className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  className={`mb-4 block text-sm ${errors.phone ? 'text-red-500' : 'text-body-color dark:text-dark-6'}`}
                 >
-                  Telefon*
+                  Telefon
                 </label>
                 <input
                   type="text"
                   name="phone"
                   placeholder="+47 000 00 000"
-                  className="w-full border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-[#58c0c2] focus:outline-none dark:border-dark-3 dark:text-white"
+                  value={formData.phone}
+                  onChange={(e) => handleInputChange('phone', e.target.value)}
+                  className={`w-full border-0 border-b bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:outline-none dark:text-white ${
+                    errors.phone 
+                      ? 'border-red-500 focus:border-red-500' 
+                      : 'border-[#f1f1f1] focus:border-[#58c0c2] dark:border-dark-3'
+                  }`}
                 />
               </div>
               <div className="mb-[30px]">
                 <label
                   htmlFor="message"
-                  className="mb-4 block text-sm text-body-color dark:text-dark-6"
+                  className={`mb-4 block text-sm ${errors.message ? 'text-red-500' : 'text-body-color dark:text-dark-6'}`}
                 >
-                  Melding*
+                  Melding
                 </label>
                 <textarea
                   name="message"
                   rows={1}
                   placeholder="skriv her"
-                  className="w-full resize-none border-0 border-b border-[#f1f1f1] bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:border-[#58c0c2] focus:outline-none dark:border-dark-3 dark:text-white"
+                  value={formData.message}
+                  onChange={(e) => handleInputChange('message', e.target.value)}
+                  className={`w-full resize-none border-0 border-b bg-transparent pb-3 text-dark placeholder:text-body-color/60 focus:outline-none dark:text-white ${
+                    errors.message 
+                      ? 'border-red-500 focus:border-red-500' 
+                      : 'border-[#f1f1f1] focus:border-[#58c0c2] dark:border-dark-3'
+                  }`}
                 ></textarea>
               </div>
               <div className="mb-0">

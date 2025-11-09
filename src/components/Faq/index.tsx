@@ -21,33 +21,34 @@ const Faq = () => {
           <div className="w-full px-4 lg:w-1/2">
             <SingleFaq
               question="Hva er Innoscribe?"
-              answer="Innoscribe utvikler AI-drevne løsninger som chatbots, stemmeassistenter og tilpasset programvarer."
+              answer="AI-løsninger for chat, telefon og selvstendige agenter."
             />
             <SingleFaq
-              question="Hvordan kan AI chatbots hjelpe bedriften min?"
-              answer="Innoscribe sine chatbotter gir 24/7 kundestøtte, svarer på vanlige spørsmål og automatiserer oppgaver."
+              question="Hva gjør AI-chatbots?"
+              answer="Gir 24/7 kundestøtte og automatiserer oppgaver som bestillinger, forespørsler og infohåndtering."
             />
             <SingleFaq
-              question="Hva er fordelene med en skreddersydd AI-assistent?"
-              answer="En tilpasset AI-assistent automatiserer rutineoppgaver, tilpasser seg dine behov og integreres sømløst i din eksisterende arbeidsflyt. Resultatet er høyere produktivitet, mer presise anbefalinger og mer tid til å fokusere på det som virkelig betyr noe."
-
+              question="Hva gjør AI-agenter?"
+              answer="Jobber selvstendig med kundedialog, oppgaver og beslutninger – fullt tilpassbart, med mulighet for oppfølging."
+            />
+            <SingleFaq
+              question="Har du flere spørsmål?"
+              answer="Snakk med chatbotten vår eller be om en samtale."
             />
           </div>
 
           <div className="w-full px-4 lg:w-1/2">
             <SingleFaq
-              question="Utvikler du mobilapper?"
-              answer="Ja, teamet vårt bygger tilpassede mobilapper for å møte dine spesifikke behov."
+              question="Hva gjør AI-telefonassistenter?"
+              answer="Håndterer samtaler, tar bestillinger og booker møter automatisk – skreddersydd for dine behov."
             />
             <SingleFaq
-              question="Kan programvaren din integreres med eksisterende systemer?"
-              answer="Absolutt, sømløs integrasjon er en prioritet for Innoscribe."
+              question="Har dere et dashboard?"
+              answer="Ja, du kan følge samtaler, oppgaver og resultater, og justere bruken etter behov."
             />
             <SingleFaq
-              question="Hvordan sikrer Innoscribe datasikkerhet?"
-              answer="Innoscribe sikrer datasikkerhet gjennom avansert kryptering, strenge tilgangskontroller,
-regelmessige sikkerhetsrevisjoner, sikre skyløsninger og overholdelse av personvernlover
-som GDPR."
+              question="Hvordan tilpasses AI-løsningene til min virksomhet?"
+              answer="Alle AI-løsninger skreddersys til dine arbeidsprosesser, mål og ønsket bruk – helt fleksibelt."
             />
           </div>
         </div>

@@ -49,10 +49,10 @@ const Hero = () => {
           {/* LEFT COLUMN — Title, Text, Buttons */}
           <div className="lg:w-1/2 text-center lg:text-left text-white space-y-6 mt-16 lg:mt-0 lg:mr-12 lg:pl-32">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-              banana
+              Innoscribe
             </h1>
             <p className="text-lg sm:text-xl font-medium opacity-90">
-              Oppdater bedriften din med AI
+              "Oppdater bedriften din med AI"
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
@@ -92,10 +92,10 @@ const Hero = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-[#58c0c2] mb-1">
-                  Be om en AI-samtale
+                  Test AI-Telefoni nå!
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Få en personlig demonstrasjon av våre tjenester
+                  Bli ringt av Innoscribe sin AI – få svar og mulighet for onboarding.
                 </p>
               </div>
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ServicesSection = () => {
   return (
-    <section className="py-24">
+    <section className="py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-14 text-center">
           <h2 className="text-4xl font-bold text-gray-900 leading-[3.25rem]">
@@ -34,8 +34,7 @@ const ServicesSection = () => {
                 AI-assistenter for taleanrop  
               </h3>
               <p className="text-sm text-white mb-6">
-                 Vår talebot besvarer spørsmål, tar imot bestillinger og booker møter   
-automatisk – på flere språk og dialekter, alltid profesjonelt.  
+                Besvarer spørsmål, tar bestillinger og booker møter 24/7 – alltid profesjonelt, på alle språk.
               </p>
             </div>
             <Link href="/error" passHref>
@@ -80,8 +79,7 @@ automatisk – på flere språk og dialekter, alltid profesjonelt.
                 AI-chatbots & Lead Chatbot  
               </h3>
               <p className="text-sm text-white mb-6">
-                Vi tilbyr chatboter som gir kundestøtte døgnet rundt og hjelper deg å   
-skape flere leads – drevet av GPT-teknologi som lærer og tilpasser seg.  
+                Gir kundestøtte og skaper leads 24/7 – intelligente chatboter som lærer og tilpasser seg.
               </p>
             </div>
             <Link href="/error#section2" passHref>
@@ -126,8 +124,7 @@ skape flere leads – drevet av GPT-teknologi som lærer og tilpasser seg.
                AI-drevne agenter  
               </h3>
               <p className="text-sm text-white mb-6">
-                Våre agenter jobber selvstendig med kundedialog, automasjon og   
-beslutninger – uten behov for oppfølging.
+                Jobber selvstendig 24/7 med kundedialog, automasjon og beslutninger – helt uten oppfølging.
               </p>
             </div>
             <Link href="/error#section3" passHref>

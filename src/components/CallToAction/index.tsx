@@ -13,10 +13,7 @@ const CallToAction = () => {
             <div className="w-full px-4">
               <div className="mx-auto max-w-[570px] text-center">
                 <h2 className="mb-2.5 text-3xl font-bold text-white md:text-[38px] md:leading-[1.44]">
-                  <span>Klar til å diskutere hvordan Innoscribe AI kan revolusjonere virksomheten din?</span><br />
-                  <span className="text-lg font-normal md:text-[40px]">
-                  
-                  </span>
+                  <span>Klar til å diskutere hvordan Innoscribe kan optimalisere virksomheten din?</span>
                 </h2>
                 <p className="mx-auto mb-6 max-w-[515px] text-base leading-[1.5] text-white">
                
