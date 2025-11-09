@@ -17,7 +17,7 @@ export default function ContactPage() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newErrors: FormErrors = {};
     
@@ -30,11 +30,11 @@ export default function ContactPage() {
     
     if (Object.keys(newErrors).length === 0) {
       // Submit form
-      const form = e.target;
-      const formData = new FormData(form);
+      const form = e.currentTarget;
+      const submitFormData = new FormData(form);
       fetch(form.action, {
         method: form.method,
-        body: formData,
+        body: submitFormData,
         headers: {
           'Accept': 'application/json'
         }
