@@ -52,7 +52,7 @@ const Hero = () => {
               Innoscribe
             </h1>
             <p className="text-lg sm:text-xl font-medium opacity-90">
-              "Oppdater bedriften din med AI"
+              &ldquo;Oppdater bedriften din med AI&rdquo;
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
