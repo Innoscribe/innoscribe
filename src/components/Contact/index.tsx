@@ -42,7 +42,7 @@ export default function ContactPage() {
               Optimaliser bedriften med AI
             </h2>
             <p className="text-base text-body-color dark:text-dark-6 mb-10">
-              Ønsker du å gjøre bedriften mer effektiv med våre løsninger?
+              Ønsker du å gjøre bedriften din mer effektiv med våre løsninger?
               <br />
               <br />
               Fyll ut skjemaet eller ta kontakt – så skreddersyr vi løsningen for deg.

@@ -7,7 +7,7 @@ const Faq = () => {
   return (
     <>
     <Fade duration={2000}>
-    <section className="relative z-20 overflow-hidden bg-white pb-8 pt-20 dark:bg-dark lg:pb-[50px] lg:pt-[120px]">
+    <section className="relative z-20 overflow-hidden bg-white pb-8 pt-32 dark:bg-dark lg:pb-[50px] lg:pt-[140px]">
       <div className="container">
         <SectionTitle
           subtitle="Lurer du på noe?"
@@ -31,10 +31,7 @@ const Faq = () => {
               question="Hva gjør AI-agenter?"
               answer="Jobber selvstendig med kundedialog, oppgaver og beslutninger – fullt tilpassbart, med mulighet for oppfølging."
             />
-            <SingleFaq
-              question="Har du flere spørsmål?"
-              answer="Snakk med chatbotten vår eller be om en samtale."
-            />
+
           </div>
 
           <div className="w-full px-4 lg:w-1/2">
@@ -50,6 +47,24 @@ const Faq = () => {
               question="Hvordan tilpasses AI-løsningene til min virksomhet?"
               answer="Alle AI-løsninger skreddersys til dine arbeidsprosesser, mål og ønsket bruk – helt fleksibelt."
             />
+          </div>
+        </div>
+        
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-dark dark:text-white mb-4">
+            Har du flere spørsmål?
+          </h3>
+          <p className="text-base text-body-color dark:text-dark-6 mb-8">
+            Snakk med chatbotten vår eller be om en samtale.
+          </p>
+          <div className="flex justify-center">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-lg bg-[#58c0c2] text-white font-semibold px-8 py-3 text-base shadow-md hover:bg-[#4dbabc] transition"
+            >
+              Be om en samtale
+            </a>
           </div>
         </div>
       </div>

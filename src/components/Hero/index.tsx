@@ -92,10 +92,10 @@ const Hero = () => {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-[#58c0c2] mb-1">
-                  Test AI-Telefoni nå!
+                  Test vår AI-Telefon!
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Bli ringt av Innoscribe sin AI – få svar og mulighet for onboarding.
+                  I denne samtalen vil du kunne få svar på spørsmål og mulighet for onboarding.
                 </p>
               </div>
 

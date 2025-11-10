@@ -70,9 +70,12 @@ const VideoSection = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Text Content */}
         <div className="text-center mb-12">
-          <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-black max-w-3xl mx-auto">
-            AI-agenter som håndterer samtaler, oppgaver og bestillinger – hele døgnet.
-          </div>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black max-w-3xl mx-auto mb-4">
+            Våre AI-agenter håndterer samtaler, oppgaver og bestillinger – døgnet rundt.
+          </h2>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            Se hvordan Innoscribe gjør kundedialog smartere
+          </p>
         </div>
 
         <Fade duration={2000}>
