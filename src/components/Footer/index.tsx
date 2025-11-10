@@ -9,13 +9,13 @@ const Footer = () => {
     <>
       <Fade duration={2000}>
         <footer className="relative z-10 bg-[#58c0c2]">
-          <div className="container">
-            <div className="flex flex-col md:flex-row flex-wrap items-center justify-between py-3 md:py-4 gap-4 md:gap-0">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col items-center justify-center py-6 gap-4 md:flex-row md:justify-between md:py-4">
               
               {/* Left Section: Logo + Links */}
-              <div className="flex flex-col md:flex-row items-center gap-3 md:gap-8">
+              <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
                 {/* Logo */}
-                <Link href="/">
+                <Link href="/" className="flex-shrink-0">
                   <Image
                     src="/images/logow-01.png"
                     alt="Logo"
@@ -26,21 +26,21 @@ const Footer = () => {
                 </Link>
 
                 {/* Links */}
-                <div className="flex gap-6 text-white text-sm md:text-base">
-                  <Link href="/privacypolicy" className="hover:underline">
+                <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-white text-sm md:text-base">
+                  <Link href="/privacypolicy" className="hover:underline whitespace-nowrap">
                     Personvernerklæring
                   </Link>
-                  <Link href="/terms" className="hover:underline">
+                  <Link href="/terms" className="hover:underline whitespace-nowrap">
                     Brukervilkår
                   </Link>
-                  <Link href="/awards" className="hover:underline">
+                  <Link href="/awards" className="hover:underline whitespace-nowrap">
                     Prisvinnende
                   </Link>
                 </div>
               </div>
 
               {/* Right Section: Social Links */}
-              <div className="flex items-center gap-5 lg:pr-24">
+              <div className="flex items-center gap-5">
                 <Link
                   href="https://www.instagram.com/innoscribe.no"
                   target="_blank"
