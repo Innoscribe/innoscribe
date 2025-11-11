@@ -39,10 +39,10 @@ export default function ContactPage() {
           {/* LEFT SIDE */}
           <div className="max-w-lg">
             <h2 className="text-3xl font-bold text-dark dark:text-white mb-6 leading-snug">
-              Optimaliser bedriften med AI
+              &ldquo;Optimaliser bedriften din med AI&rdquo;
             </h2>
             <p className="text-base text-body-color dark:text-dark-6 mb-10">
-              Ønsker du å gjøre bedriften din mer effektiv med våre løsninger?
+              Ønsker du å gjøre bedriften din mer effektiv ved bruk av våre løsninger?
               <br />
               <br />
               Fyll ut skjemaet eller ta kontakt – så skreddersyr vi løsningen for deg.

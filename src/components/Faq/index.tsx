@@ -51,19 +51,19 @@ const Faq = () => {
         </div>
         
         {/* CTA Section */}
-        <div className="mt-16 text-center">
+        <div className="mt-4 text-center">
           <h3 className="text-2xl font-bold text-dark dark:text-white mb-4">
             Har du flere spørsmål?
           </h3>
           <p className="text-base text-body-color dark:text-dark-6 mb-8">
-            Snakk med chatbotten vår eller be om en samtale.
+            Snakk med chatbotten vår, eller ta kontakt!
           </p>
           <div className="flex justify-center">
             <a
               href="/contact"
               className="inline-flex items-center justify-center rounded-lg bg-[#58c0c2] text-white font-semibold px-8 py-3 text-base shadow-md hover:bg-[#4dbabc] transition"
             >
-              Be om en samtale
+              Kontakt oss
             </a>
           </div>
         </div>

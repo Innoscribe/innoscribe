@@ -71,7 +71,7 @@ const VideoSection = () => {
         {/* Text Content */}
         <div className="text-center mb-12">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black max-w-3xl mx-auto mb-4">
-            Våre AI-agenter håndterer samtaler, oppgaver og bestillinger – døgnet rundt.
+            Våre AI-agenter håndterer samtaler, oppgaver og bestillinger – 24/7.
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
             Se hvordan Innoscribe gjør kundedialog smartere
