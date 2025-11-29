@@ -10,19 +10,25 @@ const menuData: Menu[] = [
   {
     id: 2,
     title: "Info",
-    path: "/about",
+    path: "/om-oss",
     newTab: false,
   },
   {
     id: 3,
     title: "Produkter",
-    path: "/error",
+    path: "/produkter",
+    newTab: false,
+  },
+  {
+    id: 4,
+    title: "Team",
+    path: "/team",
     newTab: false,
   },
   {
     id: 5,
     title: "Kontakt",
-    path: "/contact",
+    path: "/kontakt",
     newTab: false,
   },
 ];
