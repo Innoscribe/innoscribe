@@ -61,6 +61,7 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
   const [language, setLanguage] = useState<'en' | 'nb' | null>(null);
   // 🌐 Animation state
   const [showNotification, setShowNotification] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -83,6 +84,17 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
       ]);
     }
   }, [language, t.initialMessage]);
+
+  // 📱 Handle mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const formatText = (text: string): string => {
     if (!text) return "";
@@ -237,13 +249,13 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
   // 🖼️ Render Toggle Button when closed
   if (!isOpen) {
     return (
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
         <button
           onClick={() => {
             setIsOpen(true);
             setShowNotification(false);
           }}
-          className="relative w-14 h-14 bg-white hover:bg-gray-50 border-2 border-[#58c0c2] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center animate-bounce"
+          className="relative w-14 h-14 md:w-16 md:h-16 bg-white hover:bg-gray-50 border-2 border-[#58c0c2] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center animate-bounce"
           aria-label="Open chat"
           style={{
             animation: 'bounce 2s infinite'
@@ -285,25 +297,20 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
   // 🖼️ Render Language Selection Screen
   if (language === null) {
     return (
-      <div
-        className="chatbot-widget"
-        style={{
-          width: '380px',
-          height: '600px',
-          display: 'flex',
-          flexDirection: 'column',
-          background: '#FFFFFF',
-          borderRadius: '16px',
-          overflow: 'hidden',
-          boxShadow:
-            '0 10px 25px -5px rgba(0, 206, 209, 0.15), 0 8px 10px -6px rgba(0, 206, 209, 0.1)',
-          border: '1px solid rgba(0, 206, 209, 0.2)',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          position: 'fixed',
-          right: '2rem',
-          bottom: '2rem',
-          zIndex: 1002,
-        }}
+      <>
+        {isMobile && <div className="fixed inset-0 bg-black bg-opacity-50 z-[1001]" onClick={handleClose} />}
+        <div
+          className="chatbot-widget fixed z-[1002] flex flex-col bg-white overflow-hidden border border-[rgba(0,206,209,0.2)] font-sans"
+          style={{
+            width: isMobile ? '90vw' : '380px',
+            height: isMobile ? '70vh' : '600px',
+            maxWidth: isMobile ? '350px' : '380px',
+            borderRadius: '16px',
+            boxShadow: '0 10px 25px -5px rgba(0, 206, 209, 0.15), 0 8px 10px -6px rgba(0, 206, 209, 0.1)',
+            right: isMobile ? '50%' : '1rem',
+            bottom: isMobile ? '50%' : '1rem',
+            transform: isMobile ? 'translate(50%, 50%)' : 'none',
+          }}
       >
         {/* Minimal header (just close button) */}
         <div
@@ -419,30 +426,26 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
           </div>
         </div>
       </div>
+      </>
     );
   }
 
   // 🧠 Render Chat UI (only if language is selected)
   return (
-    <div
-      className="chatbot-widget"
-      style={{
-        width: '380px',
-        height: '600px',
-        display: 'flex',
-        flexDirection: 'column',
-        background: '#FFFFFF',
-        borderRadius: '16px',
-        overflow: 'hidden',
-        boxShadow:
-          '0 10px 25px -5px rgba(0, 206, 209, 0.15), 0 8px 10px -6px rgba(0, 206, 209, 0.1)',
-        border: '1px solid rgba(0, 206, 209, 0.2)',
-        fontFamily: 'system-ui, -apple-system, sans-serif',
-        position: 'fixed',
-        right: '2rem',
-        bottom: '2rem',
-        zIndex: 1002,
-      }}
+    <>
+      {isMobile && <div className="fixed inset-0 bg-black bg-opacity-50 z-[1001]" onClick={handleClose} />}
+      <div
+        className="chatbot-widget fixed z-[1002] flex flex-col bg-white overflow-hidden border border-[rgba(0,206,209,0.2)] font-sans"
+        style={{
+          width: isMobile ? '90vw' : '380px',
+          height: isMobile ? '70vh' : '600px',
+          maxWidth: isMobile ? '350px' : '380px',
+          borderRadius: '16px',
+          boxShadow: '0 10px 25px -5px rgba(0, 206, 209, 0.15), 0 8px 10px -6px rgba(0, 206, 209, 0.1)',
+          right: isMobile ? '50%' : '1rem',
+          bottom: isMobile ? '50%' : '1rem',
+          transform: isMobile ? 'translate(50%, 50%)' : 'none',
+        }}
     >
       {/* Top Header Bar */}
       <div
@@ -812,5 +815,6 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
         .chatbot-messages::-webkit-scrollbar { width: 0; }
       `}</style>
     </div>
+    </>
   );
 }
