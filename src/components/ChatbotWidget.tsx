@@ -96,6 +96,21 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // 💾 Load saved language on mount
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('innoscribe-language') as 'en' | 'nb' | null;
+    if (savedLanguage) {
+      setLanguage(savedLanguage);
+    }
+  }, []);
+
+  // 💾 Save language when changed
+  useEffect(() => {
+    if (language) {
+      localStorage.setItem('innoscribe-language', language);
+    }
+  }, [language]);
+
   const formatText = (text: string): string => {
     if (!text) return "";
     const innoscribePattern = /i\s*n\s*n\s*o\s*s?\s*c\s*r\s*i\s*b\s*e/gi;
@@ -236,13 +251,14 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
       { id: '1', text: t.initialMessage, isBot: true },
     ]);
     setShowNewConversationModal(false);
+    localStorage.removeItem('innoscribe-language');
+    setLanguage(null);
   };
 
   const handleHeaderClick = () => setShowContactInfo(!showContactInfo);
 
   const handleClose = () => {
     setIsOpen(false);
-    setLanguage(null);
     if (onClose) onClose();
   };
 
@@ -460,7 +476,7 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
           transition: 'all 0.3s ease',
           cursor: 'pointer',
         }}
-        onClick={handleHeaderClick}
+
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <div
@@ -530,39 +546,7 @@ export default function ChatbotWidget({ onClose }: ChatbotWidgetProps = {}) {
           background: '#FFFFFF',
         }}
       >
-        {/* Contact Info Modal (Slide up from bottom) */}
-        {showContactInfo && (
-          <div
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              backgroundColor: '#FFFFFF',
-              borderTop: '1px solid #E5E7EB',
-              padding: '16px',
-              borderRadius: '16px 16px 0 0',
-              boxShadow: '0 -4px 10px rgba(0, 0, 0, 0.1)',
-              zIndex: 1003,
-              animation: 'slideUp 0.3s ease-out',
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Mail size={16} color="#00CED1" />
-                <span style={{ fontSize: '14px', color: '#111827' }}>{t.contactEmail}</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Phone size={16} color="#00CED1" />
-                <span style={{ fontSize: '14px', color: '#111827' }}>{t.contactPhone}</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Globe size={16} color="#00CED1" />
-                <span style={{ fontSize: '14px', color: '#111827' }}>{t.contactWebsite}</span>
-              </div>
-            </div>
-          </div>
-        )}
+
 
         {/* Centered Logo and Title */}
         <div
